@@ -22,7 +22,6 @@ try:
 	secret = open("/run/secrets/gc_username")
 	GARMIN_USERNAME = secret.read()
 	secret.close()
-	verbose_print("Setting Garmin Connect username from secret")
 except Exception:
 	GARMIN_USERNAME = ''
 
@@ -30,24 +29,20 @@ try:
 	secret = open("/run/secrets/gc_password")
 	GARMIN_PASSWORD = secret.read()
 	secret.close()
-	verbose_print("Setting Garmin Connect password from secret")
 except Exception:
 	GARMIN_PASSWORD = ''
 
 if "GC_USERNAME" in os.environ:
 	GARMIN_USERNAME = os.getenv("GC_USERNAME")
-	verbose_print("Setting Garmin Connect username from environment variable")
 
 if "GC_PASSWORD" in os.environ:
 	GARMIN_PASSWORD = os.getenv("GC_PASSWORD")
-	verbose_print("Setting Garmin Connect password from environment variable")
 
 
 try:
 	secret = open("/run/secrets/tr_username")
 	TRAINERROAD_USERNAME = secret.read()
 	secret.close()
-	verbose_print("Setting TrainerRoad username from secret")
 except Exception:
 	TRAINERROAD_USERNAME = ''
 
@@ -55,17 +50,14 @@ try:
 	secret = open("/run/secrets/tr_password")
 	TRAINERROAD_PASSWORD = secret.read()
 	secret.close()
-	verbose_print("Setting TrainerRoad password from secret")
 except Exception:
 	TRAINERROAD_PASSWORD = ''
 
 if "TR_USERNAME" in os.environ:
 	TRAINERROAD_USERNAME = os.getenv("TR_USERNAME")
-	verbose_print("Setting TrainerRoad username from environment variable")
 
 if "TR_PASSWORD" in os.environ:
 	TRAINERROAD_PASSWORD = os.getenv("TR_PASSWORD")
-	verbose_print("Setting TrainerRoad password from environment variable")
 
 
 class DateOption(Option):
